@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddDbContext<Conexiones>(opt =>
-    opt.UseInMemoryDatabase("ClientesList"));
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerLocal")));
 
 var app = builder.Build();
 

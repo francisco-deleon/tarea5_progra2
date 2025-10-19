@@ -9,8 +9,8 @@ using ApiEmpresa.Models;
 
 namespace ApiEmpresa.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
     public class ClientesController : ControllerBase
     {
         private readonly Conexiones _context;
@@ -29,7 +29,7 @@ namespace ApiEmpresa.Controllers
 
         // GET: api/Clientes/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Clientes>> GetClientes(long id)
+        public async Task<ActionResult<Clientes>> GetClientes(int id)
         {
             var clientes = await _context.Clientes.FindAsync(id);
 
@@ -44,7 +44,7 @@ namespace ApiEmpresa.Controllers
         // PUT: api/Clientes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutClientes(long id, Clientes clientes)
+        public async Task<IActionResult> PutClientes(int id, Clientes clientes)
         {
             if (id != clientes.Id)
             {
@@ -85,7 +85,7 @@ namespace ApiEmpresa.Controllers
 
         // DELETE: api/Clientes/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteClientes(long id)
+        public async Task<IActionResult> DeleteClientes(int id)
         {
             var clientes = await _context.Clientes.FindAsync(id);
             if (clientes == null)
@@ -99,7 +99,7 @@ namespace ApiEmpresa.Controllers
             return NoContent();
         }
 
-        private bool ClientesExists(long id)
+        private bool ClientesExists(int id)
         {
             return _context.Clientes.Any(e => e.Id == id);
         }
