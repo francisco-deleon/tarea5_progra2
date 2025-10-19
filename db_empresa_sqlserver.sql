@@ -27,7 +27,7 @@ GO
 
 -- Crear la tabla 'clientes'
 CREATE TABLE clientes (
-    id INT IDENTITY(1,1) PRIMARY KEY,
+    idCliente INT IDENTITY(1,1) PRIMARY KEY,
     nombres VARCHAR(50) NOT NULL,
     apellidos VARCHAR(50) NOT NULL,
 	direccion VARCHAR(50) NOT NULL,
