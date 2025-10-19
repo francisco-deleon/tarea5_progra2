@@ -2,12 +2,15 @@ using Microsoft.EntityFrameworkCore;
 using ApiEmpresa.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+string? cadenaMysql = builder.Configuration.GetConnectionString("MYSQL_LOCAL") ?? "";
+string? cadenaSqlServer = builder.Configuration.GetConnectionString("SQL_SERVER_LOCAL") ?? "";
 
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddDbContext<Conexiones>(opt =>
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerLocal")));
+    //opt.UseSqlServer(cadenaSqlServer)); // Para utilizar SQL Server como BD
+    opt.UseMySQL(cadenaMysql)); // Para utilizar MySQL Server como BD
 
 var app = builder.Build();
 

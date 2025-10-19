@@ -79,6 +79,10 @@
               "target": "Package",
               "version": "[9.0.0, )"
             },
+            "MySql.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.6, )"
+            },
             "NSwag.AspNetCore": {
               "target": "Package",
               "version": "[14.6.1, )"
